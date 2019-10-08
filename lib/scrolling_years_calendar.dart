@@ -13,7 +13,6 @@ class ScrollingYearsCalendar extends StatefulWidget {
     this.todayColor,
     this.monthNames,
     this.onMonthTap,
-    this.key,
   })  : assert(context != null),
         assert(initialDate != null),
         assert(firstDate != null),
@@ -34,7 +33,6 @@ class ScrollingYearsCalendar extends StatefulWidget {
   final Color todayColor;
   final List<String> monthNames;
   final Function onMonthTap;
-  final GlobalKey key;
 
   @override
   _ScrollingYearsCalendarState createState() => _ScrollingYearsCalendarState();
@@ -42,14 +40,13 @@ class ScrollingYearsCalendar extends StatefulWidget {
 
 class _ScrollingYearsCalendarState extends State<ScrollingYearsCalendar> {
   /// Gets a widget with the view of the given year.
-  YearView _getYearView(int year, GlobalKey key) {
+  YearView _getYearView(int year) {
     return YearView(
       context: context,
       year: year,
       todayColor: widget.todayColor,
       monthNames: widget.monthNames,
       onMonthTap: widget.onMonthTap,
-      key: widget.key,
     );
   }
 
@@ -71,7 +68,7 @@ class _ScrollingYearsCalendarState extends State<ScrollingYearsCalendar> {
       itemCount: _itemCount,
       itemBuilder: (BuildContext context, int index) {
         final int year = index + widget.firstDate.year;
-        return _getYearView(year, index == 1 ? widget.key : null);
+        return _getYearView(year);
       },
     );
   }
