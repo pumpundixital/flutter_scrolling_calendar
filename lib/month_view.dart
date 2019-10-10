@@ -14,7 +14,7 @@ class MonthView extends StatelessWidget {
     this.todayColor,
     this.monthNames,
     this.onMonthTap,
-  });
+  }) : super(key: key);
 
   final BuildContext context;
   final int year;

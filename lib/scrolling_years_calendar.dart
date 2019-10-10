@@ -5,7 +5,8 @@ import 'package:scrolling_years_calendar/utils/screen_sizes.dart';
 import 'package:scrolling_years_calendar/year_view.dart';
 
 class ScrollingYearsCalendar extends StatefulWidget {
-  ScrollingYearsCalendar(GlobalKey key, {
+  ScrollingYearsCalendar(
+    GlobalKey key, {
     @required this.context,
     @required this.initialDate,
     @required this.firstDate,
@@ -24,7 +25,8 @@ class ScrollingYearsCalendar extends StatefulWidget {
         assert(!firstDate.isAfter(lastDate),
             'lastDate must be on or after firstDate'),
         assert(
-            monthNames == null || monthNames.length == DateTime.monthsPerYear);
+            monthNames == null || monthNames.length == DateTime.monthsPerYear),
+        super(key: key);
 
   final BuildContext context;
   final DateTime initialDate;

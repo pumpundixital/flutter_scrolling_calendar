@@ -4,13 +4,14 @@ import 'package:scrolling_years_calendar/utils/screen_sizes.dart';
 import 'package:scrolling_years_calendar/year_title.dart';
 
 class YearView extends StatelessWidget {
-  const YearView(GlobalKey key,{
+  const YearView(
+    GlobalKey key, {
     @required this.context,
     @required this.year,
     this.todayColor,
     this.monthNames,
     this.onMonthTap,
-  }) ;
+  }) : super(key: key);
 
   final BuildContext context;
   final int year;
