@@ -5,16 +5,16 @@ import 'package:scrolling_years_calendar/month_title.dart';
 import 'package:scrolling_years_calendar/day_number.dart';
 
 class MonthView extends StatelessWidget {
-  const MonthView({
-    @required this.context,
-    @required this.year,
-    @required this.month,
-    @required this.padding,
-    this.todayColor,
-    this.monthNames,
-    this.onMonthTap,
-    this.key,
-  });
+  const MonthView(
+      {@required this.context,
+      @required this.year,
+      @required this.month,
+      @required this.padding,
+      this.todayColor,
+      this.monthNames,
+      this.onMonthTap,
+      Key key})
+      : super(key: key);
 
   final BuildContext context;
   final int year;
@@ -23,7 +23,6 @@ class MonthView extends StatelessWidget {
   final Color todayColor;
   final List<String> monthNames;
   final Function onMonthTap;
-  final GlobalKey key;
 
   Widget buildMonthDays(BuildContext context) {
     final List<Row> dayRows = <Row>[];
@@ -84,12 +83,12 @@ class MonthView extends StatelessWidget {
   Widget build(BuildContext context) {
     return onMonthTap == null
         ? Container(
-      child: buildMonthView(context),
-    )
+            child: buildMonthView(context),
+          )
         : FlatButton(
-      onPressed: () => this.onMonthTap(year, month),
-      padding: const EdgeInsets.all(0.0),
-      child: buildMonthView(context),
-    );
+            onPressed: () => this.onMonthTap(year, month),
+            padding: const EdgeInsets.all(0.0),
+            child: buildMonthView(context),
+          );
   }
 }

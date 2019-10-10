@@ -5,28 +5,28 @@ import 'package:scrolling_years_calendar/utils/screen_sizes.dart';
 import 'package:scrolling_years_calendar/year_view.dart';
 
 class ScrollingYearsCalendar extends StatefulWidget {
-  ScrollingYearsCalendar({
-    @required this.context,
-    @required this.initialDate,
-    @required this.firstDate,
-    @required this.lastDate,
-    this.todayColor,
-    this.monthNames,
-    this.onMonthTap,
-    this.key,
-  })
+  ScrollingYearsCalendar(
+      {@required this.context,
+      @required this.initialDate,
+      @required this.firstDate,
+      @required this.lastDate,
+      this.todayColor,
+      this.monthNames,
+      this.onMonthTap,
+      Key key})
       : assert(context != null),
         assert(initialDate != null),
         assert(firstDate != null),
         assert(lastDate != null),
         assert(!initialDate.isBefore(firstDate),
-        'initialDate must be on or after firstDate'),
+            'initialDate must be on or after firstDate'),
         assert(!initialDate.isAfter(lastDate),
-        'initialDate must be on or before lastDate'),
+            'initialDate must be on or before lastDate'),
         assert(!firstDate.isAfter(lastDate),
-        'lastDate must be on or after firstDate'),
+            'lastDate must be on or after firstDate'),
         assert(
-        monthNames == null || monthNames.length == DateTime.monthsPerYear);
+            monthNames == null || monthNames.length == DateTime.monthsPerYear),
+        super(key: key);
 
   final BuildContext context;
   final DateTime initialDate;
@@ -35,7 +35,6 @@ class ScrollingYearsCalendar extends StatefulWidget {
   final Color todayColor;
   final List<String> monthNames;
   final Function onMonthTap;
-  final GlobalKey key;
 
   @override
   _ScrollingYearsCalendarState createState() => _ScrollingYearsCalendarState();
@@ -64,7 +63,7 @@ class _ScrollingYearsCalendarState extends State<ScrollingYearsCalendar> {
         (widget.initialDate.year - widget.firstDate.year) *
             getYearViewHeight(context);
     final ScrollController _scrollController =
-    ScrollController(initialScrollOffset: _initialOffset);
+        ScrollController(initialScrollOffset: _initialOffset);
 
     return ListView.builder(
       padding: const EdgeInsets.only(bottom: 16.0),
