@@ -13,6 +13,7 @@ class MonthView extends StatelessWidget {
     this.todayColor,
     this.monthNames,
     this.onMonthTap,
+    this.key,
   });
 
   final BuildContext context;
@@ -22,6 +23,7 @@ class MonthView extends StatelessWidget {
   final Color todayColor;
   final List<String> monthNames;
   final Function onMonthTap;
+  final GlobalKey key;
 
   Widget buildMonthDays(BuildContext context) {
     final List<Row> dayRows = <Row>[];

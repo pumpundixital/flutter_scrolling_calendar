@@ -13,7 +13,6 @@ class ScrollingYearsCalendar extends StatefulWidget {
     this.todayColor,
     this.monthNames,
     this.onMonthTap,
-    this.key,
   })  : assert(context != null),
         assert(initialDate != null),
         assert(firstDate != null),
@@ -34,7 +33,6 @@ class ScrollingYearsCalendar extends StatefulWidget {
   final Color todayColor;
   final List<String> monthNames;
   final Function onMonthTap;
-  final GlobalKey key;
 
   @override
   _ScrollingYearsCalendarState createState() => _ScrollingYearsCalendarState();
@@ -49,7 +47,6 @@ class _ScrollingYearsCalendarState extends State<ScrollingYearsCalendar> {
       todayColor: widget.todayColor,
       monthNames: widget.monthNames,
       onMonthTap: widget.onMonthTap,
-      key: widget.key,
     );
   }
 
