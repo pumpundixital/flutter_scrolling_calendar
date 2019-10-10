@@ -5,16 +5,15 @@ import 'package:scrolling_years_calendar/utils/screen_sizes.dart';
 import 'package:scrolling_years_calendar/year_view.dart';
 
 class ScrollingYearsCalendar extends StatefulWidget {
-  ScrollingYearsCalendar(
-      {@required this.context,
-      @required this.initialDate,
-      @required this.firstDate,
-      @required this.lastDate,
-      this.todayColor,
-      this.monthNames,
-      this.onMonthTap,
-      Key key})
-      : assert(context != null),
+  ScrollingYearsCalendar(GlobalKey key, {
+    @required this.context,
+    @required this.initialDate,
+    @required this.firstDate,
+    @required this.lastDate,
+    this.todayColor,
+    this.monthNames,
+    this.onMonthTap,
+  })  : assert(context != null),
         assert(initialDate != null),
         assert(firstDate != null),
         assert(lastDate != null),
@@ -25,8 +24,7 @@ class ScrollingYearsCalendar extends StatefulWidget {
         assert(!firstDate.isAfter(lastDate),
             'lastDate must be on or after firstDate'),
         assert(
-            monthNames == null || monthNames.length == DateTime.monthsPerYear),
-        super(key: key);
+            monthNames == null || monthNames.length == DateTime.monthsPerYear);
 
   final BuildContext context;
   final DateTime initialDate;
@@ -44,12 +42,12 @@ class _ScrollingYearsCalendarState extends State<ScrollingYearsCalendar> {
   /// Gets a widget with the view of the given year.
   YearView _getYearView(int year) {
     return YearView(
+      widget.key,
       context: context,
       year: year,
       todayColor: widget.todayColor,
       monthNames: widget.monthNames,
       onMonthTap: widget.onMonthTap,
-      key: widget.key,
     );
   }
 

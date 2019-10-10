@@ -19,6 +19,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  GlobalKey keyCalendarMonth;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,6 +30,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: ScrollingYearsCalendar(
           // Required properties
+          keyCalendarMonth,
           context: context,
           initialDate: DateTime.now(),
           firstDate: DateTime.now().subtract(Duration(days: 5 * 365)),

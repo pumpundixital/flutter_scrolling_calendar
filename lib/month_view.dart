@@ -6,15 +6,15 @@ import 'package:scrolling_years_calendar/day_number.dart';
 
 class MonthView extends StatelessWidget {
   const MonthView(
-      {@required this.context,
-      @required this.year,
-      @required this.month,
-      @required this.padding,
-      this.todayColor,
-      this.monthNames,
-      this.onMonthTap,
-      Key key})
-      : super(key: key);
+    GlobalKey key, {
+    @required this.context,
+    @required this.year,
+    @required this.month,
+    @required this.padding,
+    this.todayColor,
+    this.monthNames,
+    this.onMonthTap,
+  });
 
   final BuildContext context;
   final int year;
