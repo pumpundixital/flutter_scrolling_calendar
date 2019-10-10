@@ -83,12 +83,12 @@ class MonthView extends StatelessWidget {
   Widget build(BuildContext context) {
     return onMonthTap == null
         ? Container(
-            child: buildMonthView(context),
-          )
+      child: buildMonthView(context),
+    )
         : FlatButton(
-            onPressed: () => this.onMonthTap(year, month),
-            padding: const EdgeInsets.all(0.0),
-            child: buildMonthView(context),
-          );
+      onPressed: () => this.onMonthTap(year, month),
+      padding: const EdgeInsets.all(0.0),
+      child: buildMonthView(context),
+    );
   }
 }

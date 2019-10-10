@@ -13,18 +13,20 @@ class ScrollingYearsCalendar extends StatefulWidget {
     this.todayColor,
     this.monthNames,
     this.onMonthTap,
-  })  : assert(context != null),
+    this.key,
+  })
+      : assert(context != null),
         assert(initialDate != null),
         assert(firstDate != null),
         assert(lastDate != null),
         assert(!initialDate.isBefore(firstDate),
-            'initialDate must be on or after firstDate'),
+        'initialDate must be on or after firstDate'),
         assert(!initialDate.isAfter(lastDate),
-            'initialDate must be on or before lastDate'),
+        'initialDate must be on or before lastDate'),
         assert(!firstDate.isAfter(lastDate),
-            'lastDate must be on or after firstDate'),
+        'lastDate must be on or after firstDate'),
         assert(
-            monthNames == null || monthNames.length == DateTime.monthsPerYear);
+        monthNames == null || monthNames.length == DateTime.monthsPerYear);
 
   final BuildContext context;
   final DateTime initialDate;
@@ -33,6 +35,7 @@ class ScrollingYearsCalendar extends StatefulWidget {
   final Color todayColor;
   final List<String> monthNames;
   final Function onMonthTap;
+  Globalkey key;
 
   @override
   _ScrollingYearsCalendarState createState() => _ScrollingYearsCalendarState();
@@ -47,6 +50,7 @@ class _ScrollingYearsCalendarState extends State<ScrollingYearsCalendar> {
       todayColor: widget.todayColor,
       monthNames: widget.monthNames,
       onMonthTap: widget.onMonthTap,
+      keyfinal: widget.key,
     );
   }
 
@@ -60,7 +64,7 @@ class _ScrollingYearsCalendarState extends State<ScrollingYearsCalendar> {
         (widget.initialDate.year - widget.firstDate.year) *
             getYearViewHeight(context);
     final ScrollController _scrollController =
-        ScrollController(initialScrollOffset: _initialOffset);
+    ScrollController(initialScrollOffset: _initialOffset);
 
     return ListView.builder(
       padding: const EdgeInsets.only(bottom: 16.0),
