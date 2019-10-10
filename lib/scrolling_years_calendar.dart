@@ -35,7 +35,7 @@ class ScrollingYearsCalendar extends StatefulWidget {
   final Color todayColor;
   final List<String> monthNames;
   final Function onMonthTap;
-  Globalkey key;
+  final GlobalKey key;
 
   @override
   _ScrollingYearsCalendarState createState() => _ScrollingYearsCalendarState();

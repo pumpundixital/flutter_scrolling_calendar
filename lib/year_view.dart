@@ -20,7 +20,7 @@ class YearView extends StatelessWidget {
   final Function onMonthTap;
   double get horizontalMargin => 16.0;
   double get monthViewPadding => 8.0;
-  Globalkey keyfinal;
+  final GlobalKey keyfinal;
 
   Widget buildYearMonths(BuildContext context) {
     final List<Row> monthRows = <Row>[];
