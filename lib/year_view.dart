@@ -10,7 +10,7 @@ class YearView extends StatelessWidget {
     this.todayColor,
     this.monthNames,
     this.onMonthTap,
-    this.keyfinal,
+    this.key,
   });
 
   final BuildContext context;
@@ -20,7 +20,7 @@ class YearView extends StatelessWidget {
   final Function onMonthTap;
   double get horizontalMargin => 16.0;
   double get monthViewPadding => 8.0;
-  final GlobalKey keyfinal;
+  final GlobalKey key;
 
   Widget buildYearMonths(BuildContext context) {
     final List<Row> monthRows = <Row>[];
@@ -36,7 +36,7 @@ class YearView extends StatelessWidget {
           todayColor: todayColor,
           monthNames: monthNames,
           onMonthTap: onMonthTap,
-          key: month == 1 ? keyfinal : null,
+          key: month == 1 ? key : null,
         ),
       );
 

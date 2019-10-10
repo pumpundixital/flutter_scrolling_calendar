@@ -50,7 +50,7 @@ class _ScrollingYearsCalendarState extends State<ScrollingYearsCalendar> {
       todayColor: widget.todayColor,
       monthNames: widget.monthNames,
       onMonthTap: widget.onMonthTap,
-      keyfinal: widget.key,
+      key: widget.key,
     );
   }
 

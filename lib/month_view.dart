@@ -61,6 +61,7 @@ class MonthView extends StatelessWidget {
 
   Widget buildMonthView(BuildContext context) {
     return Container(
+      key: key,
       width: 7 * getDayNumberSize(context),
       margin: EdgeInsets.all(padding),
       child: Column(
