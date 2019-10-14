@@ -4,20 +4,21 @@ import 'package:scrolling_years_calendar/utils/screen_sizes.dart';
 import 'package:scrolling_years_calendar/year_title.dart';
 
 class YearView extends StatelessWidget {
-  const YearView(
-    GlobalKey key, {
+  const YearView({
     @required this.context,
     @required this.year,
     this.todayColor,
+    this.globalKey,
     this.monthNames,
     this.onMonthTap,
-  }) : super(key: key);
+  }) : super();
 
   final BuildContext context;
   final int year;
   final Color todayColor;
   final List<String> monthNames;
   final Function onMonthTap;
+  final GlobalKey globalKey;
 
   double get horizontalMargin => 16.0;
 
@@ -33,10 +34,10 @@ class YearView extends StatelessWidget {
     for (int month = 1; month <= DateTime.monthsPerYear; month++) {
       monthRowChildren.add(
         MonthView(
-          month == m && year == y ? key : null,
           context: context,
           year: year,
           month: month,
+          globalKey: month == m && year == y ? globalKey : null,
           padding: monthViewPadding,
           todayColor: todayColor,
           monthNames: monthNames,
